@@ -38,10 +38,29 @@ exports.submit = async (assessment) => {
 
 };
 
-exports.getList = () => {
+exports.getList = async () => {
+  const sequelize = new Sequelize(database, username, password, { dialect, host });
+
+  await sequelize.authenticate().then(() => {
+    // eslint-disable-next-line no-console
+    console.log(`Connection to ${database} has been established successfully.`);
+  }).catch((error) => {
+    // eslint-disable-next-line no-console
+    console.error(`Unable to connect to the database: `, error);
+  });
+
   // use the sequelize model Assessments from packages/api/src/database/models to fetch
   // the assessment data from the PostgreSQL database
-  const assessments = [];
+  const assessments = await Assessment.findAll();
+  /** TODO for later maybe
+   * const users = await User.findAll({
+    where: { active: true },
+    order: [['name', 'ASC']],
+    attributes: ['name', 'email'],
+    offset: 10,
+    limit: 10
+  });
+   */
 
   return assessments;
 };
