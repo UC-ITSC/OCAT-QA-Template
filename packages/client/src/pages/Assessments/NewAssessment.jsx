@@ -58,7 +58,7 @@ export const NewAssessment = () => {
 
     <Form.Group className="mb-3" controlId="formCatBirth">
       <Form.Label>Cat's Date of Birth</Form.Label>
-      <Form.Control placeholder="Cat's date of birth" {...register(`catBirth`,
+      <input type="date" placeholder="Cat's date of birth" {...register(`catBirth`,
         { required: true, valueAsDate: true })} />
       {errors.catBirth && <span>This field is required</span>}
     </Form.Group>
