@@ -35,6 +35,12 @@ export const NewAssessment = () => {
 
   };
 
+  React.useEffect(() => {
+    if (formState.isSubmitSuccessful) {
+      reset();
+    }
+  }, [ formState, reset ]);
+
   // TODO figure out scoring
   // TODO figure out clearing values on submit
   return <Form onSubmit={handleSubmit(onSubmit)}>
@@ -44,14 +50,15 @@ export const NewAssessment = () => {
       <Form.Label>Cat's Name</Form.Label>
       <Form.Control placeholder="Cat's name"
         name="catName"
-        {...register(`catNameRequired`, { required: true })} />
-      {errors.catNameRequired && <span>This field is required</span>}
+        {...register(`catName`, { required: true })} />
+      {errors.catName && <span>This field is required</span>}
     </Form.Group>
 
     <Form.Group className="mb-3" controlId="formCatBirth">
       <Form.Label>Cat's Date of Birth</Form.Label>
-      <Form.Control placeholder="Cat's date of birth" {...register(`catBirthRequired`, { required: true })} />
-      {errors.catBirthRequired && <span>This field is required</span>}
+      <Form.Control placeholder="Cat's date of birth" {...register(`catBirth`,
+        { required: true, valueAsDate: true })} />
+      {errors.catBirth && <span>This field is required</span>}
     </Form.Group>
 
     <Form.Group>
