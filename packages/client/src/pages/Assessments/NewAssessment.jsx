@@ -5,10 +5,12 @@ import { AssessmentService } from '../../services/AssessmentService';
 
 export const NewAssessment = () => {
   const {
-    formState: { errors },
+    formState,
+    formState: { errors, isSubmitSuccessful },
     getValues,
     handleSubmit,
     register,
+    reset,
   } = useForm();
 
   // create a form that utilizes the "onSubmit" function to send data to
