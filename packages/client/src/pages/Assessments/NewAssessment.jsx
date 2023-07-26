@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import React from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
@@ -11,6 +12,8 @@ export const NewAssessment = () => {
     handleSubmit,
     register,
     reset,
+    setValue,
+    watch,
   } = useForm();
 
   // create a form that utilizes the "onSubmit" function to send data to
@@ -30,12 +33,36 @@ export const NewAssessment = () => {
         });
       });
 
-      return questionScore.toString();
+      return questionScore;
     }
 
-    return `0`;
+    return <span>{questionScore}</span>;
 
   };
+
+  const calculateRisk = (data) => {
+    if (data.question) {
+      const score = calculateScore(data);
+
+      if (score === 0 || score === 1) {
+        return `Low`;
+      }
+      else if (score === 2 || score === 3) {
+        return `Medium`;
+      }
+
+      else if (score >= 4) {
+        return `High`;
+      }
+
+    }
+
+    return `Low`;
+
+  };
+
+  const instrumentType = `Cat Behavioral Instrument`;
+  const watchQuestionChecks = watch(`question`);
 
   React.useEffect(() => {
     if (formState.isSubmitSuccessful) {
@@ -43,13 +70,25 @@ export const NewAssessment = () => {
     }
   }, [ formState, reset ]);
 
-  // TODO figure out scoring
-  // TODO figure out clearing values on submit
+  useEffect(() => {
+    if (watchQuestionChecks) {
+      register(`score`);
+      setValue(`score`, calculateScore(getValues()));
+      register(`riskLevel`);
+      setValue(`riskLevel`, calculateRisk(getValues()));
+      setValue(`instrumentType`, instrumentType);
+    }
+  }, [ calculateRisk, calculateScore, getValues, register, setValue, watchQuestionChecks ]);
+
   return <Form onSubmit={handleSubmit(onSubmit)}>
-    <Form.Text>Cat Behavioral Instrument</Form.Text>
+    <Form.Text {...register(`instrumentType`)}>{instrumentType}</Form.Text>
+
+    <Form.Text {...register(`score`)}>{calculateScore(getValues())}</Form.Text>
+    <Form.Text {...register(`riskLevel`)}>{calculateRisk(getValues())}</Form.Text>
 
     <Form.Group className="mb-3" controlId="formCatName">
       <Form.Label>Cat's Name</Form.Label>
+
       <Form.Control placeholder="Cat's name"
         name="catName"
         {...register(`catName`, { required: true })} />
@@ -153,9 +192,6 @@ export const NewAssessment = () => {
         {...register(`question.5.score.1`)}
       />
     </Form.Group>
-
-    <Button {...register(`scoreRequired`)} onClick={() => {
-      <span>{calculateScore(getValues())}</span>; }}>Get Score</Button>
 
     <Button variant="primary" type="submit" >Submit</Button>
   </Form>;
