@@ -26,9 +26,9 @@ exports.login = async (user) => {
     console.error(`Unable to connect to the database: `, error);
   });
 
-  const enteredUser = User.findAll({
+  const [ enteredUser ] = await User.findAll({
     where: {
-      username: user.username,
+      username: user,
     },
   }).catch((error) => {
     // eslint-disable-next-line no-console

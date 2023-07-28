@@ -16,28 +16,31 @@ userRouter.post(
 
       bcrypt.compare(req.body.credentials.password, foundUser.password, (err, response) => {
         if (response) {
-          req.session.regenerate(() => {
-            // eslint-disable-next-line no-console
-            console.log(`Logging in...`);
-            res.redirect(`/dashboard`);
-          });
+          // eslint-disable-next-line no-console
+          console.log(`Logging in...`);
+
+          const user = {
+            firstName: foundUser.firstName,
+            is_supervisor: foundUser.is_supervisor,
+            lastName: foundUser.lastName,
+            username: foundUser.username,
+          };
+          const token = `test`;
+          ResponseHandler(
+            res,
+            `Successfully logged in`,
+            // eslint-disable-next-line sort-keys
+            { user, token },
+          );
         }
 
         else {
           // eslint-disable-next-line no-console
-          console.log(`no match`);
+          console.log(`Passwords don't match`);
           response.redirect(`/login`);
         }
-      }).catch((err) => {
-        // eslint-disable-next-line no-console
-        console.log(err);
       });
 
-      ResponseHandler(
-        res,
-        `Successfully logged in`,
-        { username },
-      );
     } catch (err) {
       next(err);
     }
