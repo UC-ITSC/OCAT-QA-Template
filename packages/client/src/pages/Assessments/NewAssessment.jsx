@@ -7,7 +7,7 @@ import { AssessmentService } from '../../services/AssessmentService';
 export const NewAssessment = () => {
   const {
     formState,
-    formState: { errors, isSubmitSuccessful },
+    formState: { errors },
     getValues,
     handleSubmit,
     register,
@@ -78,7 +78,7 @@ export const NewAssessment = () => {
       setValue(`riskLevel`, calculateRisk(getValues()));
       setValue(`instrumentType`, instrumentType);
     }
-  }, [ calculateRisk, calculateScore, getValues, register, setValue, watchQuestionChecks ]);
+  }, [ calculateRisk, calculateScore, getValues, instrumentType, register, setValue, watchQuestionChecks ]);
 
   return <Form onSubmit={handleSubmit(onSubmit)}>
     <Form.Text {...register(`instrumentType`)}>{instrumentType}</Form.Text>
