@@ -2,6 +2,7 @@ const { Router } = require(`express`);
 const { ResponseHandler } = require(`../utils`);
 const { UserService } = require(`../microservices`);
 const bcrypt = require(`bcrypt`);
+const generateAccessToken = require(`../utils/GenerateAccessToken`);
 
 const userRouter = Router();
 
@@ -14,10 +15,8 @@ userRouter.post(
 
       const foundUser = await UserService.login(username);
 
-      bcrypt.compare(req.body.credentials.password, foundUser.password, (err, response) => {
+      bcrypt.compare(req.body.credentials.password, foundUser.password, async (err, response) => {
         if (response) {
-          // eslint-disable-next-line no-console
-          console.log(`Logging in...`);
 
           const user = {
             firstName: foundUser.firstName,
@@ -25,19 +24,22 @@ userRouter.post(
             lastName: foundUser.lastName,
             username: foundUser.username,
           };
-          const token = `test`;
+          // eslint-disable-next-line no-console
+          console.log(`Logging in...`);
+
+          const token = await generateAccessToken(foundUser);
+
           ResponseHandler(
             res,
             `Successfully logged in`,
-            // eslint-disable-next-line sort-keys
-            { user, token },
+            { accessToken: token, user },
           );
         }
 
         else {
           // eslint-disable-next-line no-console
           console.log(`Passwords don't match`);
-          response.redirect(`/login`);
+          res.send(`Password or username incorrect`);
         }
       });
 

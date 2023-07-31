@@ -1,5 +1,6 @@
 import Cookies from 'universal-cookie';
 import Axios from '../utils/http.config';
+
 const cookies = new Cookies();
 
 export class UserService {
@@ -11,15 +12,18 @@ export class UserService {
       return Axios.post(`/user/login`, { credentials })
         .then((response) =>
         {
-          const { data } = response;
-          console.log(data);
+          const { data } = response.data;
+
+          if (!data.accessToken) {
+            alert(`Unable to log in`);
+          }
 
           localStorage.clear();
-          localStorage.setItem(`user-token`, response.data);
+          localStorage.setItem(`user-token`, data.accessToken);
           window.location.href = `/dashboard`;
 
         });
-      // TODO can't figure out the token thing...
+
     }
     catch (err) {
       throw new Error(`${err.response.statusText} - ${err.response.data.message}`);
