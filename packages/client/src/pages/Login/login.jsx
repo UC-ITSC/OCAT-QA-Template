@@ -3,8 +3,6 @@ import { useForm } from 'react-hook-form';
 import { Button, Form } from 'react-bootstrap';
 import { UserService } from '../../services/UserService';
 
-// TODO Bcrypt...
-
 export const Login = () => {
   const {
     formState,
@@ -18,10 +16,12 @@ export const Login = () => {
     if (formState.isSubmitSuccessful) {
       reset();
     }
+
   }, [ formState, reset ]);
 
   const onSubmit = async (data) => {
     await UserService.login(data);
+
   };
 
   return <div>

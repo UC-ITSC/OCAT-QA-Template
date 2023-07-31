@@ -58,3 +58,19 @@ exports.getList = async () => {
 
   return assessments;
 };
+
+exports.delete = async (token, assessmentId) => {
+  const sequelize = new Sequelize(database, username, password, { dialect, host });
+
+  await sequelize.authenticate().then(() => {
+    // eslint-disable-next-line no-console
+    console.log(`Connection to ${database} has been established successfully.`);
+  }).catch((error) => {
+    // eslint-disable-next-line no-console
+    console.error(`Unable to connect to the database: `, error);
+  });
+
+  const assessments = await Assessment.destroy({ where: { id: assessmentId } });
+
+  return assessments;
+};

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import dayjs from 'dayjs';
+import { Button } from 'react-bootstrap';
 import { AssessmentService } from '../../services/AssessmentService';
 
 export const AssessmentList = () => {
@@ -15,6 +16,10 @@ export const AssessmentList = () => {
     fetchAssessments();
     setLoading(false);
   }, []);
+
+  const deleteAssessment = async (assessment) => {
+    await AssessmentService.delete(assessment); // TODO how to get the id...
+  };
 
   return (
     <div>
@@ -41,6 +46,10 @@ export const AssessmentList = () => {
                   <td>{assessment.score}</td>
                   <td>{assessment.riskLevel}</td>
                   <td>{dayjs(assessment.createdAt).format(`MMM D, YYYY`)}</td>
+                  <td>
+                    <Button
+                      onClick={(e) => { e.stopPropagation(); deleteAssessment(assessment); }}
+                    >Delete Assessment</Button></td>
                 </tr>)}
             </tbody>
           </table>
