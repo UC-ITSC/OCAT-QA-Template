@@ -25,4 +25,5 @@ yarn-error.log*
 
 config.json
 packages/api/config/*
+packages/cypress/cypress.env.json
 !config/default.json

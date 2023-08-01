@@ -8,7 +8,7 @@ Make sure you review the [Guidelines section](#guidelines) to learn about when a
 
 Good luck!
 
-## About Web Development
+## About Web Development and Testing
 
 At a high-level, every web application is composed of different elements:
 
@@ -24,24 +24,16 @@ Each one of those layers will need to communicate with the others. For example, 
 
 You'll find that we need to use a number of other libraries and tools to compliment our work. For example, we will need to encrypt passwords to be able to save it securely in the database. We will need to use a version control system like Git/GitHub to keep track of our code and collaborate with others. And so on.
 
+- **Testing**: Cypress is an end-to-end testing tool, meaning that it tests the integration between all these layers at once by mimicking a user's actions. Other testing types isolate each of these layers and test only that part, but Cypress tests them all at once.
+# TODO change the above...
 ## Technologies
 
 - Version Control
   - [git](https://git-scm.com/) and [Github](https://github.com/)
-- Front-End Framework
-  - [React.js](https://reactjs.org/)
-  - Style Toolkit -> [React-Bootstrap](https://react-bootstrap.github.io/)
-- Back-End Framework
-  - [Express](http://expressjs.com/)
-  - [Node.js](https://nodejs.org/en/)
-  - Database ORM -> [Sequelize](https://sequelize.org/)
-  - Password Encryption -> [Bcrypt](https://github.com/kelektiv/node.bcrypt.js)
-- Database
-  - [PostgreSQL](https://www.postgresql.org/)
 - Package Manager (for Node.js)
   - [npm](https://www.npmjs.com/)
-- Task Runners
-  - [webpack](https://webpack.js.org/) through [create-react-app](https://create-react-app.dev/)
+- Testing tool
+  - [cypress](https://docs.cypress.io/guides/overview/why-cypress)
 
 ## Architecture
 
