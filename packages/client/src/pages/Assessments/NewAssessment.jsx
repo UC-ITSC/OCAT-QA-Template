@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import React from 'react';
-import { Button, Form } from 'react-bootstrap';
+import { Button, Col, Form } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { AssessmentService } from '../../services/AssessmentService';
 
@@ -81,10 +81,12 @@ export const NewAssessment = () => {
   }, [ calculateRisk, calculateScore, getValues, instrumentType, register, setValue, watchQuestionChecks ]);
 
   return <Form onSubmit={handleSubmit(onSubmit)}>
-    <Form.Text {...register(`instrumentType`)}>{instrumentType}</Form.Text>
 
-    <Form.Text {...register(`score`)}>{calculateScore(getValues())}</Form.Text>
-    <Form.Text {...register(`riskLevel`)}>{calculateRisk(getValues())}</Form.Text>
+    <Col className="mb-2">
+      <Col {...register(`instrumentType`)}>Instrument Name: {instrumentType}</Col>
+      <Col {...register(`score`)}>Instrument Score: {calculateScore(getValues())}</Col>
+      <Col {...register(`riskLevel`)}> Risk Level: {calculateRisk(getValues())}</Col>
+    </Col>
 
     <Form.Group className="mb-3" controlId="formCatName">
       <Form.Label>Cat's Name</Form.Label>
@@ -195,4 +197,5 @@ export const NewAssessment = () => {
 
     <Button variant="primary" type="submit" >Submit</Button>
   </Form>;
+
 };

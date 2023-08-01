@@ -1,30 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { createBrowserRouter, Outlet, Route, RouterProvider, Routes } from 'react-router-dom';
-import { Navigation, SiteWrapper } from './components';
-import { DashboardBulletin } from './pages/Dashboard/DashboardBulletin';
-import { NewAssessment } from './pages/Assessments/NewAssessment.jsx';
-import { AssessmentList } from './pages/Assessments/AssessmentList';
-import { Login } from './pages/Login/login';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { Outlet } from 'react-router-dom';
+import { Navigation } from './components';
 
-const router = createBrowserRouter([
-  {
-    element: <DashboardBulletin />,
-    path: `/`,
-  },
-  {
-    element: <NewAssessment />,
-    path: `/assessment/new`,
-  },
-  {
-    element: <AssessmentList />,
-    path: `/assessment/list`,
-  },
-  {
-    element: <Login />,
-    path: `/login`,
-  },
-]);
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
   const [ isLoggedIn, setIsLoggedIn ] = useState(false);
