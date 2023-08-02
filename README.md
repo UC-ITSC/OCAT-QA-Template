@@ -128,8 +128,8 @@ Make sure you have installed the recommended extensions, then see the [Starting 
 - NOTE: All work should be done on a separate "branch" so that it can be code reviewed. Below are instructions on how to create a new branch:
   - [Creating a branch](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/managing-branches#creating-a-branch)
 
-1. Create test for user creating an assessment
-   - Create way for the user to log in
+1. Create test for user creating an assessment based on the use case report: [link use_case_report.md here]
+   - Create a way for the user to log in
    - Create a cypress.env.json to enter login credentials for the user
    - Add data-testids to the client page
    - Organize the test
@@ -137,7 +137,7 @@ Make sure you have installed the recommended extensions, then see the [Starting 
    - Delete the created through the API afterward
 
 2. Create a test for deleting an assessment
-   - Create a use case report
+   - Create a use case report using the following template [link a template .md file here]
    - Add data-testids to the assessment list page
    - Organize the test
    - Create tests for flows and postconditions
