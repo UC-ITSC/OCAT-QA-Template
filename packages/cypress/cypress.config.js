@@ -5,6 +5,11 @@ module.exports = defineConfig({
   e2e: {
     defaultCommandTimeout: 8000,
     downloadsFolder: `download`,
+    env: {
+      CYPRESS_ENVIRONMENTS: ``,
+      CYPRESS_PASSWORD: ``,
+      CYPRESS_USERNAME: ``,
+    },
     fixturesFolder: `fixtures`,
     requestTimeout: 8000,
     retries: {

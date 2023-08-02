@@ -67,18 +67,18 @@ We will need to complete the following tasks to complete the project. Each task 
 1. Copy the Template Repository
 NOTE: You can name this whatever you want, just make certain that you leave it "Public" so that others can view your code
     - Template:
-        - [OCAT_Intern_Template](https://github.com/UC-ITSC/OCAT_Intern_Template) TODO change this to QA template repo
+        - [OCAT_Intern_Template](https://github.com/zinkjm/OCAT-QA-Template)
     - Resources:
         - [Creating a Repository from a Template](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template)
-2. Copy the Template Project Board
+1. Copy the Template Project Board
     - NOTE: This is something you should keep constantly up-to-date. It is how we will track your progress, and it will facilitate code review and collaboration with your OCAT internship peers.
         - Template:
-            - [OCAT Project Board](https://github.com/UC-ITSC/OCAT_Intern_Template/projects/1) TODO change this to QA template
+            - [OCAT Project Board](https://github.com/zinkjm/OCAT-QA-Template/projects/1) TODO change this to QA template
         - Resources:
             - [Copying a Project Board](https://docs.github.com/en/github/managing-your-work-on-github/copying-a-project-board)
-3. Add the Provided Issues to your Project Board
+2. Add the Provided Issues to your Project Board
     - Issues:
-        - [OCAT Issues](./docs/issues.md) TODO change issues.md to the issues used in QA board
+        - [OCAT Issues](./docs/issues.md)
     - Resources:
         - [Creating an Issue](https://docs.github.com/en/github/managing-your-work-on-github/creating-an-issue)
         - [Adding Issues to a Project Board](https://docs.github.com/en/github/managing-your-work-on-github/adding-issues-and-pull-requests-to-a-project-board#adding-issues-and-pull-requests-to-a-project-board-from-the-sidebar)
@@ -128,7 +128,7 @@ Make sure you have installed the recommended extensions, then see the [Starting 
 - NOTE: All work should be done on a separate "branch" so that it can be code reviewed. Below are instructions on how to create a new branch:
   - [Creating a branch](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/managing-branches#creating-a-branch)
 
-1. Create test for user creating an assessment based on the use case report: [link use_case_report.md here]
+1. Create test for user creating an assessment based on the use case report: [use case report](./docs/create_assessment_use_case.md)
    - Create a way for the user to log in
    - Create a cypress.env.json to enter login credentials for the user
    - Add data-testids to the client page
@@ -137,7 +137,7 @@ Make sure you have installed the recommended extensions, then see the [Starting 
    - Delete the created through the API afterward
 
 2. Create a test for deleting an assessment
-   - Create a use case report using the following template [link a template .md file here]
+   - Create a use case report using the following template [use case template](./docs/use_case_report.md)
    - Add data-testids to the assessment list page
    - Organize the test
    - Create tests for flows and postconditions

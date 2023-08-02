@@ -10,5 +10,5 @@
 //
 //
 Cypress.Commands.add(`login`, (username, password) => {
-// TODO add codetour here about custom commands
+
 });
