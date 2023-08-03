@@ -9,6 +9,6 @@
 // ***********************************************
 //
 //
-Cypress.Commands.add(`login`, (username, password) => {
+Cypress.Commands.add(`login`, () => {
 
 });

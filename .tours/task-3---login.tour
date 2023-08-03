@@ -1,0 +1,27 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Task 3 - Log in test",
+  "steps": [
+    {
+      "file": "docs/use_case_report.md",
+      "description": "# Create Use Case Report\n\nUse the provided use case report template and create a use case report for log in functionality, documenting all flows, post-conditions, exceptions etc.\n",
+      "line": 1
+    },
+    {
+      "file": "packages/cypress/integration/createAssessment.test.js",
+      "description": "# Organize test structure\n\nCreate a new test file for logging into the system and create the test skeleton based on the previous step's use case report.",
+      "line": 3
+    },
+    {
+      "file": "packages/client/src/pages/Login/login.jsx",
+      "description": "# Add data-testids\n\nAdd data-testid attributes to any element that the tests will use\n",
+      "line": 6
+    },
+    {
+      "file": "packages/cypress/integration/createAssessment.test.js",
+      "description": "# Add test data and write the tests\n\nFill in the tests for each flow and post-condition defined in the use case report using the Cypress API commands",
+      "line": 4
+    }
+  ],
+  "ref": "main"
+}

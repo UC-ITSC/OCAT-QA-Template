@@ -14,7 +14,7 @@
     },
     {
       "file": "packages/cypress/integration/createAssessment.test.js",
-      "description": "# Organize test structure\n\n Use the provided use case report [docs/create_assessment_use_case.md](docs/assessment_info.md](https://github.com/UC-ITSC/OCAT-Intern-Template/blob/main/docs/create_assessment_use_case.md) to create the structure of the test.\nCreate an it() function for each flow, and post-condition and create a before() or beforeEach() for each precondition.\nSome exceptions should also have their own it() function.",
+      "description": "# Organize test skeleton\n\n Use the provided use case report [docs/create_assessment_use_case.md](docs/assessment_info.md](https://github.com/UC-ITSC/OCAT-Intern-Template/blob/main/docs/create_assessment_use_case.md) to create the structure of the test.\nCreate an it() function for each flow, and post-condition and create a before() or beforeEach() for each precondition.\nSome exceptions should also have their own it() function.",
       "line": 3
     },
     {

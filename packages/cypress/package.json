@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "cypress": "cypress open",
+    "cypress:critical": "cypress run --env SUITE=critical",
     "cypress:headless": "cypress run",
     "check-updates": "ncu --configFileName .check-updates.json",
     "check-updates:fix": "ncu --configFileName .check-updates.json --upgrade --errorLevel 1",

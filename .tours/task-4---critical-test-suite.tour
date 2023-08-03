@@ -1,0 +1,22 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Task 4 - Creating critical test suite",
+  "steps": [
+    {
+      "file": "packages/cypress/package.json",
+      "description": "Critical Test Suite\n\nThis command will run the critical test suite. Instead of running npm run cypress, you can run this command to only run the critical tests\n Tests that belong in the critical test suite are those that users will frequently use and find most important",
+      "line": 6
+    },
+    {
+      "file": "packages/cypress/support/index.js",
+      "description": "# Critical test suite\n\nThe above code ensures when the tests are run and the env value SUITE is provided, only tests that include the name provided as the SUITE value in the test name will run.\n",
+      "line": 15
+    },
+    {
+      "file": "packages/cypress/integration/createAssessment.test.js",
+      "description": "# Adding tests to the critical test suite\n\nTo add tests to the critical suite, add <critical> to all test names that belong in the critical test suite, such as successful login and successfully creating an assessment.",
+      "line": 3
+    }
+  ],
+  "ref": "main"
+}
