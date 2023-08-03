@@ -9,12 +9,12 @@
     },
     {
       "file": "docs/create_assessment_use_case.md",
-      "description": "# Read Use Case Report\n\n Use case reports map out all the different aspects that need to be included in a test.\n",
+      "description": "# Read Use Case Report\n\n Use case reports map out all the different aspects that need to be included in a test. The preconditions map out everything that needs to happen before a use case can be executed. The flow and alternate flows map out the steps the actor needs to achieve to get the intended result. The post-conditions are the expected results of the flow or alternate flow that need to be tested for.\n",
       "line": 1
     },
     {
       "file": "packages/cypress/integration/createAssessment.test.js",
-      "description": "# Organize test structure\n\n Use the provided use case report [docs/create_assessment_use_case.md](docs/assessment_info.md](https://github.com/UC-ITSC/OCAT-Intern-Template/blob/main/docs/create_assessment_use_case.md)",
+      "description": "# Organize test structure\n\n Use the provided use case report [docs/create_assessment_use_case.md](docs/assessment_info.md](https://github.com/UC-ITSC/OCAT-Intern-Template/blob/main/docs/create_assessment_use_case.md) to create the structure of the test.\nCreate an it() function for each flow, and post-condition and create a before() or beforeEach() for each precondition.\nSome exceptions should also have their own it() function.",
       "line": 3
     },
     {
@@ -29,18 +29,23 @@
     },
     {
       "file": "packages/cypress/cypress.config.js",
-      "description": "# Adding Cypress.env values\n\n",
+      "description": "# Adding Cypress.env values\n\nCreate a file called cypress.env.json in the root of the project. Copy the env object in this file and paste it in the newly created file.\nFill out the values with the values as follows: CYPRESS_USERNAME: test_user CYPRESS_PASSWORD: password CYPRESS_ENVIRONMENT: http://localhost:3000. These values will be what defines the test user and site that the tests use.\n Call these values in the test files by calling Cypress.env(\"CYPRESS_<name>\")\nDocumentation: https://docs.cypress.io/guides/guides/environment-variables ",
       "line": 12
     },
     {
-      "file": "",
-      "description": "# Write the tests\n\n",
-      "line": 0
+      "file": "packages/cypress/integration/createAssessment.test.js",
+      "description": "# Creating test data\n\nUse faker and dayjs to create random and unique test data for the cat name and date of birth. https://fakerjs.dev/guide/, https://www.npmjs.com/package/dayjs ",
+      "line": 2
     },
     {
-      "file": "",
-      "description": "# Test cleanup\n\n",
-      "line": 0
+      "file": "packages/cypress/integration/createAssessment.test.js",
+      "description": "# Write the tests\n\nFill in the tests for each flow and post-condition defined in the use case report using the Cypress API commands found here: https://docs.cypress.io/api/table-of-contents",
+      "line": 4
+    },
+    {
+      "file": "packages/cypress/integration/createAssessment.test.js",
+      "description": "# Test cleanup\n\nIn all automated tests, whatever record or data that is created on the AUT needs to be deleted afterward. Use the cy.request command to delete the assessment that was created in the test in an after() function. https://docs.cypress.io/api/commands/request",
+      "line": 5
     }
   ],
   "ref": "main"
