@@ -145,9 +145,11 @@ Make sure you have installed the recommended extensions, then see the [Starting 
 3. Create a test for login functionality
     - This should have alternate flows and exceptions for wrong credentials input
 
-4. critical test suite?
+4. critical test suite
+   - Critical test suites are a subset of the full testing suite, only including tests that are most valuable features and user workflows.
+   - Add the most important tests to the critical test suite and run the suite to see if they pass
 
-5. Prepare your presentation!
+6. Prepare your presentation!
 
 ## Guidelines
 
@@ -182,5 +184,3 @@ Make sure you have installed the recommended extensions, then see the [Starting 
     - Mac developers should use -> [postico](https://eggerapps.at/postico/)
 
 ## Advanced Resources
-
-- Link some cypress guides here!!! TODO
