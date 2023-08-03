@@ -1,47 +1,46 @@
 {
   "$schema": "https://aka.ms/codetour-schema",
-  "title": "Task 1 - Create Assessment",
+  "title": "Task 1 - Create Assessment Test",
   "steps": [
     {
       "file": "packages/client/package.json",
-      "description": "# Start Application\n\nREMINDER: In order to run the application, you will have to run some commands.\n_______________________________________________\n\nCOMMANDS:\n\nOpen a terminal within vscode and type these commands into that terminal and hit \"enter\" or \"return\":\n\n- Navigate into the OCAT directory (folder) with the command \"`cd packages/client/`\"\n- `npm install`\n- `npm start`\n- Open the browser and go to http://localhost:3000 to verify that your application is running",
+      "description": "# Start Application\n\nREMINDER: In order to run the application, you will have to run some commands.\n_______________________________________________\n\nCOMMANDS:\n\nOpen a terminal within vscode and type these commands into that terminal and hit \"enter\" or \"return\":\n\n- Navigate into the OCAT directory (folder) with the command \"`cd packages/client/`\"\n- `npm install`\n- `npm start`\n- Open the browser and go to http://localhost:3000 to verify that your application is running. Next to run cypress, navigate into the Cypress directory (folder) with the command \"`cd packages/cypress/`\"\n- `npm install`\n- `npm run cypress`\n- ",
       "line": 6
+    },
+    {
+      "file": "docs/create_assessment_use_case.md",
+      "description": "# Read Use Case Report\n\n Use case reports map out all the different aspects that need to be included in a test.\n",
+      "line": 1
+    },
+    {
+      "file": "packages/cypress/integration/createAssessment.test.js",
+      "description": "# Organize test structure\n\n Use the provided use case report [docs/create_assessment_use_case.md](docs/assessment_info.md](https://github.com/UC-ITSC/OCAT-Intern-Template/blob/main/docs/create_assessment_use_case.md)",
+      "line": 3
     },
     {
       "file": "packages/client/src/pages/Assessments/NewAssessment.jsx",
-      "description": "# Create Form\n\nUse the provided Assessment Info in [docs/assessment_info.md](https://github.com/UC-ITSC/OCAT-Intern-Template/blob/main/docs/assessment_info.md) to create an assessment form for the front-end using the library \"`react-hook-form`\"\n\nInstall and implement \"`react-hook-form`\" by following the [documented instructions](https://www.npmjs.com/package/react-hook-form)\n",
+      "description": "# Add data-testids\n\nAdding data-testid attributes making sure that it will be unique and developers won't change it as the application changes. \n Add data-testid attributes to any element that the tests will use https://docs.cypress.io/guides/references/best-practices#Selecting-Elements\n",
       "line": 6
     },
     {
-      "file": "packages/client/src/services/AssessmentService.js",
-      "description": "# Axios Service Request\n\nInside the `AssessmentService.submit()` function, send a POST request to `/api/assessment/submit` using the axios library that contains the assessment data from the front-end form.\n\nThis will go to the back-end Express server in the file [packages/api/src/routes/Assessment/index.js](./packages/api/src/routes/Assessment/index.js)",
-      "line": 6
-    },
-    {
-      "file": "packages/api/config/default.json",
-      "description": "# Config\n\n1. Setup your PostgreSQL instance in a Docker container using the step-by-step instructions provided in [docs/install_postgres.md](https://github.com/UC-ITSC/OCAT-Intern-Template/blob/main/docs/install_postgres.md)\n2. Duplicate this file using copy + paste\n3. Rename this file to local.json\n4. Supply the correct values to match your PostgreSQL instance\n5. Remove any values that you don't change from the default.json",
-      "line": 1,
-      "title": "Config"
-    },
-    {
-      "file": "packages/api/package.json",
-      "description": "# Start Application\n\n1. Open a second terminal window by using the split functionality\n2. Navigate into the API directory (folder) with the command `cd ../packages/api/`\n3. `npm install`\n4. `npm run dev`",
-      "line": 7
-    },
-    {
-      "file": "packages/api/src/routes/assessment.js",
-      "description": "# API Router - /assessment/submit\n\nReceive the POST request from the front-end server and call the `.submit()` function in [packages/api/src/microservices/Assessment-Service/index.js](./packages/api/src/microservices/Assessment-Service/index.js).  Pass in the assessment data from the request parameters.",
+      "file": "packages/cypress/support/commands.js",
+      "description": "# Creating login custom command\n\nCustom commands are used for any action that are used multiple times.\n Through the API, fill in the custom command to log into the application, with the following resources: https://docs.cypress.io/api/cypress-api/custom-commands,  ",
       "line": 13
     },
     {
-      "file": "packages/api/src/microservices/Assessment-Service.js",
-      "description": "# Assessment Microservice\n\nThis step will introduce an ORM (Object-Relational Mapping) tool we use for this project called \"`Sequelize`\"\nUse Sequelize to save the assessment data from the front-end form into the PostgreSQL database.\n\nHINT: use Sequelize's `.create()` function: https://sequelize.org/api/v6/class/src/model.js~model#static-method-create\n",
-      "line": 8
+      "file": "packages/cypress/cypress.config.js",
+      "description": "# Adding Cypress.env values\n\n",
+      "line": 12
     },
     {
-      "file": "packages/api/src/microservices/Assessment-Service.js",
-      "description": "# Finish Issue\n\n1. Test manually in the browser to make sure your form is working and submitting properly\n2. [Create a new branch](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/managing-branches#creating-a-branch)\n3. [Create a pull request into the \"main\" branch](https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)\n4. [Get someone to review your pull request](https://docs.github.com/en/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)\n5. Once happy with your changes, [merge your pull request](https://docs.github.com/en/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)\n6. Go to the next issue",
-      "line": 13
+      "file": "",
+      "description": "# Write the tests\n\n",
+      "line": 0
+    },
+    {
+      "file": "",
+      "description": "# Test cleanup\n\n",
+      "line": 0
     }
   ],
   "ref": "main"

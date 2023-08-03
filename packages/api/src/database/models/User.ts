@@ -7,22 +7,22 @@ import {
   Sequelize,
 } from 'sequelize';
 
-export class Assessment extends Model<
-InferAttributes<Assessment>,
-InferCreationAttributes<Assessment>
+export class User extends Model<
+InferAttributes<User>,
+InferCreationAttributes<User>
 > {
   declare public id: CreationOptional<number>;
-  declare public instrumentType: string;
-  declare public score: number;
-  declare public riskLevel: string;
-  declare public catName: string;
-  declare public catDateOfBirth: string;
+  declare public firstName: string;
+  declare public lastName: string;
+  declare public username: string;
+  declare public password: string;
+  declare public is_supervisor: boolean;
   declare public createdAt: CreationOptional<Date>;
   declare public updatedAt: CreationOptional<Date>;
   declare public deletedAt: Date | null;
 
-  public static initModel(sequelize: Sequelize): typeof Assessment {
-    Assessment.init({
+  public static initModel(sequelize: Sequelize): typeof User {
+    User.init({
       /* eslint-disable sort-keys */
       id: {
         allowNull: false,
@@ -32,25 +32,25 @@ InferCreationAttributes<Assessment>
         primaryKey: true,
         type: DataTypes.INTEGER,
       },
-      instrumentType: {
+      firstName: {
         allowNull: false,
         type: DataTypes.STRING,
       },
-      score: {
-        allowNull: false,
-        type: DataTypes.INTEGER,
-      },
-      riskLevel: {
+      lastName: {
         allowNull: false,
         type: DataTypes.STRING,
       },
-      catName: {
+      username: {
         allowNull: false,
         type: DataTypes.STRING,
       },
-      catDateOfBirth: {
+      password: {
         allowNull: false,
-        type: DataTypes.DATEONLY,
+        type: DataTypes.STRING,
+      },
+      is_supervisor: {
+        allowNull: false,
+        type: DataTypes.BOOLEAN,
       },
       createdAt: {
         allowNull: false,
@@ -65,10 +65,9 @@ InferCreationAttributes<Assessment>
       },
       /* eslint-enable sort-keys */
     }, {
-      paranoid: true,
       sequelize,
     });
 
-    return Assessment;
+    return User;
   }
 }

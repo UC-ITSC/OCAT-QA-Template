@@ -47,4 +47,22 @@ assessmentRouter.get(
   },
 );
 
+assessmentRouter.delete(
+  `/:id/delete`,
+  async (req, res, next) => {
+    try {
+      // verify that your data is making it here to the API by using console.log();
+      const data = await AssessmentService.delete(req.token, req.params.id);
+
+      ResponseHandler(
+        res,
+        `Deleted assessment`,
+        { data },
+      );
+    } catch (err) {
+      next(err);
+    }
+
+  },
+);
 module.exports = { assessmentRouter };

@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 import React from 'react';
-import { Button, Form } from 'react-bootstrap';
+import { Button, Col, Form } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { AssessmentService } from '../../services/AssessmentService';
 
 export const NewAssessment = () => {
   const {
     formState,
-    formState: { errors, isSubmitSuccessful },
+    formState: { errors },
     getValues,
     handleSubmit,
     register,
@@ -213,4 +213,5 @@ export const NewAssessment = () => {
 
     <Button variant="primary" type="submit" >Submit</Button>
   </Form>;
+
 };

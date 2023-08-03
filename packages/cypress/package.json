@@ -1,0 +1,23 @@
+{
+  "name": "ocat-qa-template",
+  "private": true,
+  "scripts": {
+    "cypress": "cypress open",
+    "cypress:headless": "cypress run",
+    "check-updates": "ncu --configFileName .check-updates.json",
+    "check-updates:fix": "ncu --configFileName .check-updates.json --upgrade --errorLevel 1",
+    "check-updates:all": "ncu --configFileName .check-updates.json --target latest --errorLevel 1",
+    "lint": "eslint support integration --ext .js",
+    "lint:fix": "npm run lint -- --fix"
+  },
+  "devDependencies": {
+    "cypress": "^12.17.2",
+    "eslint": "^8.46.0",
+    "eslint-plugin-cypress": "^2.13.3",
+    "eslint-plugin-import": "^2.28.0",
+    "eslint-plugin-import-quotes": "^0.0.1",
+    "eslint-plugin-mocha": "^10.1.0",
+    "eslint-plugin-sort-destructure-keys": "^1.5.0",
+    "npm-check-updates": "^16.5.1"
+  }
+}
